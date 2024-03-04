@@ -43,3 +43,16 @@ axios.put(url)
     .catch(error => {
         console.error('PUT Error:', error.message);
     });
+
+// HEAD request
+axios.head(url)
+    .then(response => {
+        if (response.status === 200) {
+            console.log(response.data);
+        } else {
+            console.error(`Request failed with status code ${response.status}`);
+        }
+    })
+    .catch(error => {
+        console.error('PUT Error:', error.message);
+    });

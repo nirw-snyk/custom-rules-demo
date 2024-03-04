@@ -26,5 +26,3 @@ And<
  >,
   HasArg1<~"http://.*">
 >
-
-#~"(get|put|post|head)" HasAnyArg<~"http://.*">

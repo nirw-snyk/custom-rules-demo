@@ -1,0 +1,30 @@
+#"http://example.com/api/data"
+#~"http://.*"
+#And<"requests.get",  HasArg1<"http://example.com/api/data">>
+#And<"requests.get",  HasArg1<~"http://.*">>
+#And<~"requests.(get|put|post)",  HasArg1<~"http://.*">>
+
+#And<
+#Or<
+#~"requests.(get|put|post|head)",  # Python
+#~"axios.(get|put|post|head)"      # JS
+#>,
+#HasArg1<~"http://.*">
+#>
+
+
+#"get" HasArg0<"khttp">
+
+
+And<
+  Or<
+    And<~"(get|put|post|head)", HasArg0<"khttp">>,
+    Or<
+        ~"requests.(get|put|post|head)",  # Python
+        ~"axios.(get|put|post|head)",     # JS  
+      >
+ >,
+  HasArg1<~"http://.*">
+>
+
+#~"(get|put|post|head)" HasAnyArg<~"http://.*">

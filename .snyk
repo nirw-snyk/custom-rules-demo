@@ -1,0 +1,35 @@
+custom_rules:
+  - id: Cleartext Transmission of Sensitive Information
+    description: ''
+    severity: high
+    cwe:
+      - CWE-319
+    fix_analysis: replace http urls with https
+    rule_code: |-
+      And<
+        Or<
+          And<~"(get|put|post|head)", HasArg0<"khttp">>,
+          Or<
+              ~"requests.(get|put|post|head)",  # Python
+              ~"axios.(get|put|post|head)"     # JS  
+            >
+       >,
+        HasArg1<~"http://.*">
+      >
+    languages:
+      - apex
+      - c
+      - cpp
+      - csharp
+      - go
+      - html
+      - java
+      - javascript
+      - kotlin
+      - php
+      - python
+      - ruby
+      - scala
+      - swift
+      - typescript
+      - vb

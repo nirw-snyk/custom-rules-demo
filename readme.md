@@ -4,11 +4,14 @@
   1.b ~"pass.*|root"
 
 2. Custom / Standard Tainted vuln:
-  2.a Custom Taint Vulnarability - OTB
-  2.b Standard Taint Vulnarability - OTB + OTB on custom code
-  2.c Taint<PRED:AnySource, CallExpression<"myOwnSanitizer">, PRED:SqliSink>
+  2.a Custom Taint Vulnarability - OTB example: find SQL injection when source custom method (e.g "getRequest") and sink custom method (e.g "insertToDataBase") aren't availbel
+  2.b Standard Taint Vulnarability - OTB + OTB on custom code - investigate code for common vulns
+  2.c Taint<PRED:AnySource, CallExpression<"myOwnSanitizer">, PRED:SqliSink> - as part of the investigation "filter" results based on custom sanitizer
 
-3. Flag risky custom method:
+3. Flag risky custom method + create a rule:
+  3.a Find library function calls: myOwnSanitizer
+  3.b test to make sure this isn't creating FP's + create a rule
+
 
 
 

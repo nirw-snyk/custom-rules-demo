@@ -1,5 +1,46 @@
 custom_rules:
-  - id: Cleartext Transmission of Sensitive Information
+  - id: Call-Deprecated-SQLi-Vulnarable-myOwnSanitizer-Method
+    description: >-
+      Starting Jan 2024 the use of this method is no longe allowed please see
+      more info on our AppSec internal page
+    severity: high
+    cwe:
+      - CWE-89
+    fix_analysis: Replace the call to myOwnSAnitizer with myNewOwnSanitizer
+    rule_code: >-
+      CallExpression<"myOwnSanitizer">
+
+      # This example finds all calls to library functions named 'login' (among
+      others, the Java class
+
+      # sun.net.ftp.impl.FtpClient has such a method to log into an FTP server).
+      This can be useful to locate code that
+
+      # handles user credentials.
+
+      # Note that calls to functions defined in your own code usually cannot be
+      looked up using this template, because
+
+      # the analysis engine inlines such calls if possible.
+    languages:
+      - apex
+      - c
+      - cpp
+      - csharp
+      - go
+      - html
+      - java
+      - javascript
+      - kotlin
+      - php
+      - python
+      - ruby
+      - scala
+      - swift
+      - typescript
+      - vb
+
+  - id: Cleartext-Transmission-of-Sensitive-Information
     description: ''
     severity: high
     cwe:

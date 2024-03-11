@@ -22,3 +22,11 @@ if response.status_code == 200:
     print(response.text)
 else:
     print(f'Request failed with status code {response.status_code}')    
+
+
+response = requests.head('http://example.com/api/data')
+
+if response.status_code == 200:
+    print(response.text)
+else:
+    print(f'Request failed with status code {response.status_code}')    

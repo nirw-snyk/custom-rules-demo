@@ -24,7 +24,7 @@ let id = req.query.id;
 let sqlQuery = 'SELECT * FROM users WHERE id = ' + id;
 
 sqlQuery = app.myOwnSanitizer(sqlQuery);
-// deepcode ignore Sqli: <please specify a reason of ignoring this>
+
 connection.query(sqlQuery, (error, results) => {
   if (error) {
     res.status(500).send('An error occurred: ' + error);

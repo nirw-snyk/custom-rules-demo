@@ -1,27 +1,14 @@
 custom_rules:
-  - id: Call-Deprecated-SQLi-Vulnarable-myOwnSanitizer-Method
-    description: >-
-      Starting Jan 2024 the use of this method is no longe allowed please see
-      more info on our AppSec internal page
+  - id: 'Call-Deprecated-SQLi-Vulnarable-myOwnSanitizer-Method'
+    description: 'MyOwnSanitizer is no longer allowed to be used'
     severity: high
     cwe:
       - CWE-89
-    fix_analysis: Replace the call to myOwnSAnitizer with myNewOwnSanitizer
+    fix_analysis: Replace this call with MyBetterOwnSanitizer
     rule_code: >-
       CallExpression<"myOwnSanitizer">
 
-      # This example finds all calls to library functions named 'login' (among
-      others, the Java class
-
-      # sun.net.ftp.impl.FtpClient has such a method to log into an FTP server).
-      This can be useful to locate code that
-
-      # handles user credentials.
-
-      # Note that calls to functions defined in your own code usually cannot be
-      looked up using this template, because
-
-      # the analysis engine inlines such calls if possible.
+      # This example finds all calls to library functions named 'MyOwnSanitizer'
     languages:
       - apex
       - c
